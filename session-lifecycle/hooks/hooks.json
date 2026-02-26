@@ -1,0 +1,15 @@
+{
+  "description": "Session lifecycle — auto-inject context on session start",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/session-lifecycle/hooks/session-start.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

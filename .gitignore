@@ -1,0 +1,17 @@
+# Runtime state
+.claude/ralph-loop.local.md
+prd.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Node (if any)
+node_modules/

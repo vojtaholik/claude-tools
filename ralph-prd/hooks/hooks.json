@@ -1,0 +1,15 @@
+{
+  "description": "PRD-aware ralph loop stop hook",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/ralph-prd/hooks/stop-hook-prd.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
