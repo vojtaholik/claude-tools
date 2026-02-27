@@ -1,6 +1,11 @@
 # Runtime state
 .claude/ralph-loop.local.md
+.claude/settings.local.json
 prd.json
+autopsy-report.md
+
+# Generated at install time from commands/
+skills/
 
 # OS
 .DS_Store

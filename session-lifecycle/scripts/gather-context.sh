@@ -46,9 +46,9 @@ if [[ -f "$MEMORY_FILE" ]]; then
   fi
 fi
 
-# Daily log (opt-in)
-DAILY_DIR="$HOME/Documents/developer/daily"
-DAILY_FILE="$DAILY_DIR/$(date '+%Y-%m-%d').md"
+# Daily log (opt-in, set CLAUDE_TOOLS_DAILY_DIR to enable)
+DAILY_DIR="${CLAUDE_TOOLS_DAILY_DIR:-}"
+DAILY_FILE="${DAILY_DIR:+$DAILY_DIR/$(date '+%Y-%m-%d').md}"
 if [[ -f "$DAILY_FILE" ]]; then
   DAILY=$(tail -5 "$DAILY_FILE" 2>/dev/null || echo "")
   if [[ -n "$DAILY" ]]; then

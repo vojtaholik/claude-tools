@@ -21,6 +21,12 @@ A toolkit for Claude Code: ralph loop recipes, PRD-driven dev loops, repo autops
     └───────────┘ └───────┘ └─────────┘ └─────────┘ └─────────┘
 ```
 
+## Requirements
+
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code) CLI
+- `python3` (used for JSON parsing in hooks and scripts)
+- `bash`, `git`, standard Unix tools
+
 ## Install
 
 ```bash
@@ -127,9 +133,20 @@ Automatic. On session start, gathers and injects a context brief:
 - Last 5 git commits
 - Active ralph loop status
 - Memory notes (if any)
-- Daily log entries (if any)
+- Daily log entries (opt-in, see below)
 
 No command needed. Runs via the `SessionStart` hook.
+
+### Daily log (opt-in)
+
+To include daily log entries in your session brief, set `CLAUDE_TOOLS_DAILY_DIR` in your shell profile:
+
+```bash
+# ~/.zshrc or ~/.bashrc
+export CLAUDE_TOOLS_DAILY_DIR="$HOME/Documents/developer/daily"
+```
+
+Expects files named `YYYY-MM-DD.md` in that directory. Skipped if unset.
 
 ## Architecture
 
