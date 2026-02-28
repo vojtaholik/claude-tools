@@ -1,7 +1,7 @@
 {
   "name": "claude-tools",
-  "version": "1.0.0",
-  "description": "Ralph loop recipes, PRD-driven loops, skill injection, repo autopsy, session lifecycle.",
+  "version": "1.1.0",
+  "description": "Ralph loop recipes, PRD-driven loops, skill injection, repo autopsy, session lifecycle, grind mode.",
   "author": { "name": "Vojta Holik" },
   "commands": [
     "ralph-recipes/commands/ralph-tdd.md",
@@ -9,10 +9,12 @@
     "ralph-recipes/commands/ralph-greenfield.md",
     "ralph-recipes/commands/ralph-review.md",
     "ralph-prd/commands/ralph-prd.md",
-    "repo-autopsy/commands/autopsy.md"
+    "repo-autopsy/commands/autopsy.md",
+    "grind-mode/commands/grind.md"
   ],
   "hooks": [
     "session-lifecycle/hooks/hooks.json",
-    "ralph-prd/hooks/hooks.json"
+    "ralph-prd/hooks/hooks.json",
+    "grind-mode/hooks/hooks.json"
   ]
 }

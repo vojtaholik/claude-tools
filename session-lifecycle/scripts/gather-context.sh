@@ -36,6 +36,16 @@ if [[ -f "$RALPH_STATE" ]]; then
   BRIEF="${BRIEF}\n**Active loop:** ralph-${RECIPE} iteration ${ITERATION}/${MAX}\n"
 fi
 
+# Active grind mode
+GRIND_STATE=".claude/grind-mode.local.json"
+if [[ -f "$GRIND_STATE" ]]; then
+  GRIND_ACTIVE=$(python3 -c "import json; print(json.load(open('$GRIND_STATE')).get('active', False))" 2>/dev/null || echo "False")
+  if [[ "$GRIND_ACTIVE" = "True" ]]; then
+    GRIND_TURNS=$(python3 -c "import json; print(json.load(open('$GRIND_STATE')).get('total_turns', 0))" 2>/dev/null || echo "0")
+    BRIEF="${BRIEF}\n**Grind mode:** ON (${GRIND_TURNS} turns)\n"
+  fi
+fi
+
 # Memory file (project-specific)
 SAFE_PATH=$(echo "$PROJECT_PATH" | sed 's|/|-|g' | sed 's|^-||')
 MEMORY_FILE="$HOME/.claude/projects/${SAFE_PATH}/memory/MEMORY.md"

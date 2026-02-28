@@ -20,6 +20,7 @@ declare -A SKILL_MAP=(
   ["ralph-recipes/commands/ralph-review.md"]="ralph-review:Start a code review ralph loop. Use when the user says /ralph-review or wants autonomous 2-pass code review (validator + minifier)."
   ["ralph-prd/commands/ralph-prd.md"]="ralph-prd:Start a PRD-driven ralph loop. Use when the user says /ralph-prd or wants autonomous story-by-story development from a prd.json config."
   ["repo-autopsy/commands/autopsy.md"]="autopsy:Run structured 5-pass codebase analysis. Use when the user says /autopsy or wants to analyze a repo's structure, dependencies, hotspots, and architecture."
+  ["grind-mode/commands/grind.md"]="grind:Toggle grind mode for autonomous auto-continue. Use when the user says /grind or wants Claude to keep working autonomously until the task is done."
 )
 
 echo "Generating skills from commands..."
@@ -60,7 +61,7 @@ ln -s "$TOOL_DIR" "$PLUGIN_DIR/$LINK_NAME"
 
 # --- Skill symlinks ---
 
-SKILLS=(ralph-tdd ralph-refactor ralph-greenfield ralph-review ralph-prd autopsy)
+SKILLS=(ralph-tdd ralph-refactor ralph-greenfield ralph-review ralph-prd autopsy grind)
 for skill in "${SKILLS[@]}"; do
   target="$TOOL_DIR/skills/$skill"
   link="$SKILLS_DIR/$skill"
@@ -88,6 +89,7 @@ echo "   /ralph-greenfield Greenfield ralph loop"
 echo "   /ralph-review     Code review ralph loop"
 echo "   /ralph-prd        PRD-driven ralph loop"
 echo "   /autopsy          Structured codebase analysis"
+echo "   /grind            Toggle autonomous grind mode"
 echo ""
 echo "Session lifecycle hook auto-injects context on session start."
 echo ""

@@ -1,0 +1,15 @@
+{
+  "description": "Grind mode — auto-continue stop hook",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/grind-mode/hooks/stop-hook-grind.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
