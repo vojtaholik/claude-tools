@@ -74,6 +74,38 @@ for skill in "${SKILLS[@]}"; do
   echo "   Linked skill: /$skill"
 done
 
+# --- Vojta prompting skills (derived from Anthropic's prompting best practices) ---
+
+VOJTA_SKILLS=(
+  vojta-frontend-design
+  vojta-concise
+  vojta-act
+  vojta-research-first
+  vojta-parallel-tools
+  vojta-bug-hunt
+  vojta-minimal
+  vojta-investigate
+  vojta-persist
+  vojta-no-hardcode
+  vojta-confirm
+  vojta-deep-research
+  vojta-prose
+  vojta-design-options
+  vojta-cleanup
+)
+for skill in "${VOJTA_SKILLS[@]}"; do
+  target="$TOOL_DIR/vojta-skills/$skill"
+  link="$SKILLS_DIR/$skill"
+  if [[ -L "$link" ]]; then
+    rm "$link"
+  elif [[ -e "$link" ]]; then
+    echo "Warning: $link exists and is not a symlink, skipping" >&2
+    continue
+  fi
+  ln -s "$target" "$link"
+  echo "   Linked skill: /$skill"
+done
+
 # Make scripts executable
 find "$TOOL_DIR" -name "*.sh" -exec chmod +x {} \;
 
