@@ -24,4 +24,29 @@ for skill in "${SKILLS[@]}"; do
   fi
 done
 
+VOJTA_SKILLS=(
+  vojta-frontend-design
+  vojta-concise
+  vojta-act
+  vojta-research-first
+  vojta-parallel-tools
+  vojta-bug-hunt
+  vojta-minimal
+  vojta-investigate
+  vojta-persist
+  vojta-no-hardcode
+  vojta-confirm
+  vojta-deep-research
+  vojta-prose
+  vojta-design-options
+  vojta-cleanup
+)
+for skill in "${VOJTA_SKILLS[@]}"; do
+  link="$SKILLS_DIR/$skill"
+  if [[ -L "$link" ]] && [[ "$(readlink "$link")" == "$TOOL_DIR/vojta-skills/$skill" ]]; then
+    rm "$link"
+    echo "Removed skill: $skill"
+  fi
+done
+
 echo "claude-tools uninstalled"
